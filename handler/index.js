@@ -44,7 +44,7 @@ class ProfileImageHandler extends CropImageHandler {
 
         const aspectRatio = croppedWidth / croppedHeight;
 
-        const targetheight = 150 / aspectRatio;
+        const targetheight = 200 / aspectRatio;
 
         const canva = this.cropper.getCroppedCanvas({
             width: 200,
