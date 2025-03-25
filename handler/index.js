@@ -2,7 +2,8 @@ class CropImageHandler {
     cropper;
     cropImage(image) {
         this.cropper = new Cropper(image, {
-            autoCropArea: 1
+            autoCropArea: 1,
+            aspectRatio: 1
         });
     }
 }
