@@ -3,7 +3,6 @@ class CropImageHandler {
     cropImage(image) {
         this.cropper = new Cropper(image, {
             autoCropArea: 1,
-            aspectRatio: 1
         });
     }
 }
@@ -48,7 +47,7 @@ class ProfileImageHandler extends CropImageHandler {
         const targetheight = 150 / aspectRatio;
 
         const canva = this.cropper.getCroppedCanvas({
-            width: 150,
+            width: 200,
             height: targetheight,
             scale: window.devicePixelRatio,
             imageSmoothingQuality: "high"
