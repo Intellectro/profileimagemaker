@@ -49,10 +49,12 @@ class ProfileImageHandler extends CropImageHandler {
 
         const canva = this.cropper.getCroppedCanvas({
             width: 150,
-            height: targetheight
+            height: targetheight,
+            scale: window.devicePixelRatio,
+            imageSmoothingQuality: "high"
         });
 
-        const imageTag = this.#elementCreator(`<img class="h-full w-full object-cover object-center rounded-full" data-id="circled-img" src="${canva.toDataURL()}" alt="image">`);
+        const imageTag = this.#elementCreator(`<img class="h-full w-full object-cover object-center rounded-full" data-id="circled-img" src="${canva.toDataURL()}" style="filter: brightness(1.2) contrast(1.1);" alt="image">`);
         this.#circularImage?.appendChild(imageTag);
     }
 
