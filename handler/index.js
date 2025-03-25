@@ -95,12 +95,23 @@ class ProfileImageHandler extends CropImageHandler {
 
     #downloadImageSource() {
         const random = Math.floor(Math.random() * 10);
+        const random2 = Math.floor(Math.random() * 15);
         html2canvas(this.#circularImage.firstElementChild, {backgroundColor: null, removeContainer: true, scale: window.devicePixelRatio}).then(canvas => {
             const a = document.createElement("a");
             a.href = canvas.toDataURL();
-            a.download = "intell-pic" + random + ".png";
+            a.download = "intell-cropped-" + random + random2 + '' + ".png";
             a.click();
-        })
+        });
+        setTimeout(() => {
+            Swal.fire({
+                title: "Profile Pic Downloaded Successfully",
+                text: "The image may appear slightly blurry, but rest assured, it's still bright.😅",
+                icon: "success"
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 3000)
+        }, 1000);
     }
  }
 
